@@ -1,0 +1,155 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Agent{% endblock %}
+
+{% block header %}
+	  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+	    <div class="container">
+	      <a class="navbar-brand" href="index.html">Ecoverde</a>
+	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="oi oi-menu"></span> Menu
+	      </button>
+
+	      <div class="collapse navbar-collapse" id="ftco-nav">
+	        <ul class="navbar-nav ml-auto">
+	          <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
+	          <li class="nav-item"><a href="/about" class="nav-link">About</a></li>
+	          <li class="nav-item active"><a href="/agent" class="nav-link">Agent</a></li>
+	          <li class="nav-item"><a href="/services" class="nav-link">Services</a></li>
+	          <li class="nav-item"><a href="properties.html" class="nav-link">Properties</a></li>
+	          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+	          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+	        </ul>
+	      </div>
+	    </div>
+	  </nav>
+{% endblock %}
+
+{% block content %}
+    <section class="hero-wrap hero-wrap-2" style="background-image: url('{% static 'images/bg_1.jpg' %}');" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center">
+          <div class="col-md-9 ftco-animate pb-0 text-center">
+          	<p class="breadcrumbs"><span class="mr-2"><a href="/">Home <i class="fa fa-chevron-right"></i></a></span> <span>Agents <i class="fa fa-chevron-right"></i></span></p>
+            <h1 class="mb-3 bread">Agents</h1>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ftco-section ftco-agent">
+    	<div class="container">
+    		<div class="row justify-content-center pb-5">
+          <div class="col-md-12 heading-section text-center ftco-animate">
+          	<span class="subheading">Agents</span>
+            <h2 class="mb-4">Our Agents</h2>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+        	<div class="col-md-3 ftco-animate">
+        		<div class="agent">
+    					<div class="img">
+		    				<img src="{% static 'images/team-1.jpg' %}" class="img-fluid" alt="Colorlib Template">
+		    				<div class="desc">
+		    					<h3><a href="properties.html">Carlos Henderson</a></h3>
+									<p class="h-info"><span class="location">Listing</span> <span class="details">10 Properties</span></p>
+		    				</div>
+	    				</div>
+    				</div>
+        	</div>
+        	<div class="col-md-3 ftco-animate">
+        		<div class="agent">
+    					<div class="img">
+		    				<img src="{% static 'images/team-2.jpg' %}" class="img-fluid" alt="Colorlib Template">
+	    				</div>
+	    				<div class="desc">
+	    					<h3><a href="properties.html">Mike Bochs</a></h3>
+								<p class="h-info"><span class="location">Listing</span> <span class="details">10 Properties</span></p>
+	    				</div>
+    				</div>
+        	</div>
+        	<div class="col-md-3 ftco-animate">
+        		<div class="agent">
+    					<div class="img">
+		    				<img src="{% static 'images/team-3.jpg' %}" class="img-fluid" alt="Colorlib Template">
+	    				</div>
+	    				<div class="desc">
+	    					<h3><a href="properties.html">Jessica Moore</a></h3>
+								<p class="h-info"><span class="location">Listing</span> <span class="details">10 Properties</span></p>
+	    				</div>
+    				</div>
+        	</div>
+        	<div class="col-md-3 ftco-animate">
+        		<div class="agent">
+    					<div class="img">
+		    				<img src="{% static 'images/team-4.jpg' %}" class="img-fluid" alt="Colorlib Template">
+	    				</div>
+	    				<div class="desc">
+	    					<h3><a href="properties.html">Sarah Geronimo</a></h3>
+								<p class="h-info"><span class="position">Listing</span> <span class="details">10 Properties</span></p>
+	    				</div>
+    				</div>
+        	</div>
+
+        	<div class="col-md-3 ftco-animate">
+        		<div class="agent">
+    					<div class="img">
+		    				<img src="{% static 'images/team-5.jpg' %}" class="img-fluid" alt="Colorlib Template">
+		    				<div class="desc">
+		    					<h3><a href="properties.html">Carlos Henderson</a></h3>
+									<p class="h-info"><span class="location">Listing</span> <span class="details">10 Properties</span></p>
+		    				</div>
+	    				</div>
+    				</div>
+        	</div>
+        	<div class="col-md-3 ftco-animate">
+        		<div class="agent">
+    					<div class="img">
+		    				<img src="{% static 'images/team-6.jpg' %}" class="img-fluid" alt="Colorlib Template">
+	    				</div>
+	    				<div class="desc">
+	    					<h3><a href="properties.html">Mike Bochs</a></h3>
+								<p class="h-info"><span class="location">Listing</span> <span class="details">10 Properties</span></p>
+	    				</div>
+    				</div>
+        	</div>
+        	<div class="col-md-3 ftco-animate">
+        		<div class="agent">
+    					<div class="img">
+		    				<img src="{% static 'images/team-7.jpg' %}" class="img-fluid" alt="Colorlib Template">
+	    				</div>
+	    				<div class="desc">
+	    					<h3><a href="properties.html">Jessica Moore</a></h3>
+								<p class="h-info"><span class="location">Listing</span> <span class="details">10 Properties</span></p>
+	    				</div>
+    				</div>
+        	</div>
+        	<div class="col-md-3 ftco-animate">
+        		<div class="agent">
+    					<div class="img">
+		    				<img src="{% static 'images/team-8.jpg' %}" class="img-fluid" alt="Colorlib Template">
+	    				</div>
+	    				<div class="desc">
+	    					<h3><a href="properties.html">Sarah Geronimo</a></h3>
+								<p class="h-info"><span class="position">Listing</span> <span class="details">10 Properties</span></p>
+	    				</div>
+    				</div>
+        	</div>
+        	<div class="col-md-3 ftco-animate">
+        		<div class="agent">
+    					<div class="img">
+		    				<img src="{% static 'images/team-9.jpg' %}" class="img-fluid" alt="Colorlib Template">
+	    				</div>
+	    				<div class="desc">
+	    					<h3><a href="properties.html">Sarah Geronimo</a></h3>
+								<p class="h-info"><span class="position">Listing</span> <span class="details">10 Properties</span></p>
+	    				</div>
+    				</div>
+        	</div>
+        </div>
+    	</div>
+    </section>
+
+{% endblock %}
