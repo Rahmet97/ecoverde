@@ -3,29 +3,6 @@
 
 {% block title %}Home{% endblock %}
 
-{% block header %}
-	  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
-	    <div class="container">
-	      <a class="navbar-brand" href="index.html">Ecoverde</a>
-	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-	        <span class="oi oi-menu"></span> Menu
-	      </button>
-
-	      <div class="collapse navbar-collapse" id="ftco-nav">
-	        <ul class="navbar-nav ml-auto">
-	          <li class="nav-item active"><a href="/" class="nav-link">Home</a></li>
-	          <li class="nav-item"><a href="/about" class="nav-link">About</a></li>
-	          <li class="nav-item"><a href="/agent" class="nav-link">Agent</a></li>
-	          <li class="nav-item"><a href="/services" class="nav-link">Services</a></li>
-	          <li class="nav-item"><a href="properties.html" class="nav-link">Properties</a></li>
-	          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
-	          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-	        </ul>
-	      </div>
-	    </div>
-	  </nav>
-{% endblock %}
-
 {% block content %}
     
     <section class="hero-wrap" style="background-image: url('{% static 'images/bg_1.jpg' %}');" data-stellar-background-ratio="0.5">
@@ -209,122 +186,6 @@
 		        		</div>
               </div>
                 {% endfor %}
-{#              <div class="item">#}
-{#                <div class="property-wrap ftco-animate">#}
-{#		        			<a href="#" class="img" style="background-image: url({% static 'images/work-2.jpg' %});">#}
-{#		        				<div class="rent-sale">#}
-{#		        					<span class="rent">Rent</span>#}
-{#		        				</div>#}
-{#		        				<p class="price"><span class="old-price">800,000</span><span class="orig-price">$3,050<small> / mo</small></span></p>#}
-{#		        			</a>#}
-{#		        			<div class="text">#}
-{#		        				<ul class="property_list">#}
-{#		        					<li><span class="flaticon-bed"></span>3</li>#}
-{#		        					<li><span class="flaticon-bathtub"></span>2</li>#}
-{#		        					<li><span class="flaticon-floor-plan"></span>1,878 sqft</li>#}
-{#		        				</ul>#}
-{#		        				<h3><a href="#">The Blue Sky Home</a></h3>#}
-{#		        				<span class="location">Oakland</span>#}
-{#		        				<a href="#" class="d-flex align-items-center justify-content-center btn-custom">#}
-{#		        					<span class="fa fa-link"></span>#}
-{#		        				</a>#}
-{#		        				<div class="list-team d-flex align-items-center mt-2 pt-2 border-top">#}
-{#		        					<div class="d-flex align-items-center">#}
-{#			        					<div class="img" style="background-image: url({% static 'images/person_1.jpg' %});"></div>#}
-{#			        					<h3 class="ml-2">John Dorf</h3>#}
-{#			        				</div>#}
-{#			        				<span class="text-right">2 weeks ago</span>#}
-{#		        				</div>#}
-{#		        			</div>#}
-{#		        		</div>#}
-{#              </div>#}
-{#              <div class="item">#}
-{#                <div class="property-wrap ftco-animate">#}
-{#		        			<a href="#" class="img" style="background-image: url({% static 'images/work-3.jpg' %});">#}
-{#		        				<div class="rent-sale">#}
-{#		        					<span class="rent">Rent</span>#}
-{#		        				</div>#}
-{#		        				<p class="price"><span class="orig-price">$300<small> / mo</small></span></p>#}
-{#		        			</a>#}
-{#		        			<div class="text">#}
-{#		        				<ul class="property_list">#}
-{#		        					<li><span class="flaticon-bed"></span>3</li>#}
-{#		        					<li><span class="flaticon-bathtub"></span>2</li>#}
-{#		        					<li><span class="flaticon-floor-plan"></span>1,878 sqft</li>#}
-{#		        				</ul>#}
-{#		        				<h3><a href="#">The Blue Sky Home</a></h3>#}
-{#		        				<span class="location">Oakland</span>#}
-{#		        				<a href="#" class="d-flex align-items-center justify-content-center btn-custom">#}
-{#		        					<span class="fa fa-link"></span>#}
-{#		        				</a>#}
-{#		        				<div class="list-team d-flex align-items-center mt-2 pt-2 border-top">#}
-{#		        					<div class="d-flex align-items-center">#}
-{#			        					<div class="img" style="background-image: url({% static 'images/person_1.jpg' %});"></div>#}
-{#			        					<h3 class="ml-2">John Dorf</h3>#}
-{#			        				</div>#}
-{#			        				<span class="text-right">2 weeks ago</span>#}
-{#		        				</div>#}
-{#		        			</div>#}
-{#		        		</div>#}
-{#              </div>#}
-{#              <div class="item">#}
-{#                <div class="property-wrap ftco-animate">#}
-{#		        			<a href="#" class="img" style="background-image: url({% static 'images/work-4.jpg' %});">#}
-{#		        				<div class="rent-sale">#}
-{#		        					<span class="rent">Rent</span>#}
-{#		        				</div>#}
-{#		        				<p class="price"><span class="orig-price">$300<small> / mo</small></span></p>#}
-{#		        			</a>#}
-{#		        			<div class="text">#}
-{#		        				<ul class="property_list">#}
-{#		        					<li><span class="flaticon-bed"></span>3</li>#}
-{#		        					<li><span class="flaticon-bathtub"></span>2</li>#}
-{#		        					<li><span class="flaticon-floor-plan"></span>1,878 sqft</li>#}
-{#		        				</ul>#}
-{#		        				<h3><a href="#">The Blue Sky Home</a></h3>#}
-{#		        				<span class="location">Oakland</span>#}
-{#		        				<a href="#" class="d-flex align-items-center justify-content-center btn-custom">#}
-{#		        					<span class="fa fa-link"></span>#}
-{#		        				</a>#}
-{#		        				<div class="list-team d-flex align-items-center mt-2 pt-2 border-top">#}
-{#		        					<div class="d-flex align-items-center">#}
-{#			        					<div class="img" style="background-image: url({% static 'images/person_1.jpg' %});"></div>#}
-{#			        					<h3 class="ml-2">John Dorf</h3>#}
-{#			        				</div>#}
-{#			        				<span class="text-right">2 weeks ago</span>#}
-{#		        				</div>#}
-{#		        			</div>#}
-{#		        		</div>#}
-{#              </div>#}
-{#              <div class="item">#}
-{#                <div class="property-wrap ftco-animate">#}
-{#		        			<a href="#" class="img" style="background-image: url({% static 'images/work-5.jpg' %});">#}
-{#		        				<div class="rent-sale">#}
-{#		        					<span class="rent">Rent</span>#}
-{#		        				</div>#}
-{#		        				<p class="price"><span class="orig-price">$300<small> / mo</small></span></p>#}
-{#		        			</a>#}
-{#		        			<div class="text">#}
-{#		        				<ul class="property_list">#}
-{#		        					<li><span class="flaticon-bed"></span>3</li>#}
-{#		        					<li><span class="flaticon-bathtub"></span>2</li>#}
-{#		        					<li><span class="flaticon-floor-plan"></span>1,878 sqft</li>#}
-{#		        				</ul>#}
-{#		        				<h3><a href="#">The Blue Sky Home</a></h3>#}
-{#		        				<span class="location">Oakland</span>#}
-{#		        				<a href="#" class="d-flex align-items-center justify-content-center btn-custom">#}
-{#		        					<span class="fa fa-link"></span>#}
-{#		        				</a>#}
-{#		        				<div class="list-team d-flex align-items-center mt-2 pt-2 border-top">#}
-{#		        					<div class="d-flex align-items-center">#}
-{#			        					<div class="img" style="background-image: url({% static 'images/person_1.jpg' %});"></div>#}
-{#			        					<h3 class="ml-2">John Dorf</h3>#}
-{#			        				</div>#}
-{#			        				<span class="text-right">2 weeks ago</span>#}
-{#		        				</div>#}
-{#		        			</div>#}
-{#		        		</div>#}
-{#              </div>#}
             </div>
           </div>
         </div>
@@ -340,30 +201,16 @@
           </div>
         </div>
     		<div class="row">
-    			<div class="col-md-4">
-    				<a href="#" class="search-place img" style="background-image: url({% static 'images/place-1.jpg' %});">
+    			{% for city in cities %}
+                <div class="col-md-4">
+    				<a href="#" class="search-place img" style="background-image: url({{ city.img.url }});">
 							<div class="desc">
-								<h3><span>Miami</span></h3>
-								<span>24 Properties</span>
+								<h3><span>{{ city.name }}</span></h3>
+								<span>{{ city.house_count }} Properties</span>
 							</div>
     				</a>
     			</div>
-    			<div class="col-md-4">
-    				<a href="#" class="search-place img" style="background-image: url({% static 'images/place-2.jpg' %});">
-							<div class="desc">
-								<h3><span>Chicago</span></h3>
-								<span>20 Properties</span>
-							</div>
-    				</a>
-    			</div>
-    			<div class="col-md-4">
-    				<a href="#" class="search-place img" style="background-image: url({% static 'images/place-3.jpg' %});">
-							<div class="desc">
-								<h3><span>Illinoi</span></h3>
-								<span>15 Properties</span>
-							</div>
-    				</a>
-    			</div>
+                {% endfor %}
     		</div>
     	</div>
     </section>

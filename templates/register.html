@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Create account | Ecoverde{% endblock %}
+{% block body_class %}auth-page{% endblock %}
+{% block extra_css %}<link rel="stylesheet" href="{% static 'css/auth.css' %}">{% endblock %}
+
+{% block content %}
+<main class="auth-shell">
+  <div class="auth-card auth-card--register">
+    <section class="auth-visual" style="background-image: url('{% static 'images/about.jpg' %}');">
+      <div class="auth-visual__overlay"></div>
+      <div class="auth-visual__content">
+        <span class="auth-kicker">A better way to move</span>
+        <h1>Make room<br>for what matters.</h1>
+        <p>Join a community making the search for a new home simple, personal and inspiring.</p>
+        <div class="auth-benefits">
+          <span><i class="fa fa-check" aria-hidden="true"></i> Curated properties</span>
+          <span><i class="fa fa-check" aria-hidden="true"></i> Trusted local agents</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="auth-form-panel">
+      <div class="auth-form-head">
+        <span class="auth-eyebrow">Get started</span>
+        <h2>Create your account</h2>
+        <p>Save homes, follow listings and find your perfect place.</p>
+      </div>
+
+      {% if form.non_field_errors %}<div class="auth-alert">{{ form.non_field_errors }}</div>{% endif %}
+      <form method="post" class="auth-form auth-form--register">
+        {% csrf_token %}
+        <div class="auth-name-grid">
+          <div class="auth-field">
+            <label for="id_first_name">First name</label>
+            <div class="auth-input"><span class="fa fa-user-o" aria-hidden="true"></span><input type="text" name="first_name" id="id_first_name" placeholder="John" autocomplete="given-name" value="{{ request.POST.first_name|default:'' }}" required></div>
+            {% for error in form.first_name.errors %}<small class="auth-error">{{ error }}</small>{% endfor %}
+          </div>
+          <div class="auth-field">
+            <label for="id_last_name">Last name</label>
+            <div class="auth-input"><span class="fa fa-user-o" aria-hidden="true"></span><input type="text" name="last_name" id="id_last_name" placeholder="Doe" autocomplete="family-name" value="{{ request.POST.last_name|default:'' }}" required></div>
+            {% for error in form.last_name.errors %}<small class="auth-error">{{ error }}</small>{% endfor %}
+          </div>
+        </div>
+        <div class="auth-field">
+          <label for="id_username">Username</label>
+          <div class="auth-input"><span class="fa fa-at" aria-hidden="true"></span><input type="text" name="username" id="id_username" placeholder="Choose a username" autocomplete="username" value="{{ request.POST.username|default:'' }}" required></div>
+          {% for error in form.username.errors %}<small class="auth-error">{{ error }}</small>{% endfor %}
+        </div>
+        <div class="auth-field">
+          <label for="id_email">Email address <span>(optional)</span></label>
+          <div class="auth-input"><span class="fa fa-envelope-o" aria-hidden="true"></span><input type="email" name="email" id="id_email" placeholder="you@example.com" autocomplete="email" value="{{ request.POST.email|default:'' }}"></div>
+          {% for error in form.email.errors %}<small class="auth-error">{{ error }}</small>{% endfor %}
+        </div>
+        <div class="auth-field">
+          <label for="id_password1">Password</label>
+          <div class="auth-input"><span class="fa fa-lock" aria-hidden="true"></span><input type="password" name="password1" id="id_password1" placeholder="At least 8 characters" autocomplete="new-password" required></div>
+          {% for error in form.password1.errors %}<small class="auth-error">{{ error }}</small>{% endfor %}
+        </div>
+        <div class="auth-field">
+          <label for="id_password2">Confirm password</label>
+          <div class="auth-input"><span class="fa fa-shield" aria-hidden="true"></span><input type="password" name="password2" id="id_password2" placeholder="Repeat your password" autocomplete="new-password" required></div>
+          {% for error in form.password2.errors %}<small class="auth-error">{{ error }}</small>{% endfor %}
+        </div>
+        <button type="submit" class="auth-submit">Create account <span class="fa fa-arrow-right" aria-hidden="true"></span></button>
+      </form>
+      <p class="auth-switch">Already have an account? <a href="{% url 'login' %}">Sign in</a></p>
+    </section>
+  </div>
+</main>
+{% endblock %}

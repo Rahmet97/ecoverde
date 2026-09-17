@@ -1,0 +1,43 @@
+.auth-page { background: #f7f8f5; }
+.auth-page #ftco-navbar { display: none; }
+.auth-page .ftco-footer { display: none; }
+.auth-shell { min-height: 100vh; padding: 64px 20px; display: flex; align-items: center; }
+.auth-card { width: min(1080px, 100%); min-height: 650px; margin: 0 auto; display: grid; grid-template-columns: .93fr 1.07fr; overflow: hidden; background: #fff; border-radius: 6px; box-shadow: 0 20px 60px rgba(33, 36, 61, .12); }
+.auth-card--register { min-height: 700px; }
+.auth-visual { position: relative; background-position: center; background-size: cover; color: #fff; display: flex; align-items: flex-end; padding: 54px; }
+.auth-visual__overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(33,36,61,.15), rgba(33,36,61,.9)); }
+.auth-visual__content { position: relative; z-index: 1; max-width: 390px; }
+.auth-kicker, .auth-eyebrow { color: #24a148; font-size: 11px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; }
+.auth-kicker { color: #b8e7c3; }
+.auth-visual h1 { margin: 15px 0 20px; color: #fff; font-size: 42px; line-height: 1.1; font-weight: 400; }
+.auth-visual p { margin-bottom: 32px; color: rgba(255,255,255,.82); font-size: 15px; line-height: 1.8; }
+.auth-stat { display: flex; align-items: center; gap: 13px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,.3); }
+.auth-stat strong { color: #fff; font-size: 24px; font-weight: 700; }
+.auth-stat span { color: rgba(255,255,255,.7); font-size: 13px; }
+.auth-benefits { display: grid; gap: 13px; color: rgba(255,255,255,.88); font-size: 14px; }
+.auth-benefits i { width: 20px; height: 20px; margin-right: 8px; color: #b8e7c3; }
+.auth-form-panel { padding: 68px clamp(32px, 7vw, 88px); display: flex; flex-direction: column; justify-content: center; }
+.auth-form-head { margin-bottom: 28px; }
+.auth-form-head h2 { margin: 11px 0 10px; color: #21243d; font-size: 30px; font-weight: 700; }
+.auth-form-head p { margin: 0; color: #7d7f8b; font-size: 14px; line-height: 1.7; }
+.auth-form { display: grid; gap: 20px; }
+.auth-name-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.auth-field label, .auth-label-row { display: flex; justify-content: space-between; margin-bottom: 8px; color: #21243d; font-size: 12px; font-weight: 700; }
+.auth-label-row a, .auth-field label span { color: #92939d; font-weight: 400; }
+.auth-label-row a:hover, .auth-switch a:hover { color: #24a148; }
+.auth-input { position: relative; }
+.auth-input > span { position: absolute; z-index: 1; top: 17px; left: 17px; color: #a3a5ad; }
+.auth-input input { width: 100%; height: 52px; padding: 0 16px 0 46px; border: 1px solid #e6e7e9; border-radius: 4px; outline: 0; color: #21243d; background: #fff; font-size: 14px; transition: border .2s, box-shadow .2s; }
+.auth-input input:focus { border-color: #24a148; box-shadow: 0 0 0 3px rgba(36,161,72,.1); }
+.auth-check { display: flex; align-items: center; gap: 8px; color: #7d7f8b; font-size: 12px; }
+.auth-check input { accent-color: #24a148; }
+.auth-submit { height: 54px; border: 0; border-radius: 4px; color: #fff; background: #24a148; font-size: 13px; font-weight: 700; letter-spacing: .3px; transition: background .2s, transform .2s; }
+.auth-submit span { margin-left: 9px; }
+.auth-submit:hover { background: #1d873d; transform: translateY(-1px); }
+.auth-switch { margin: 27px 0 0; color: #92939d; text-align: center; font-size: 13px; }
+.auth-switch a { color: #24a148; font-weight: 700; }
+.auth-error, .auth-alert { display: block; margin-top: 7px; color: #c0392b; font-size: 11px; }
+.auth-alert { margin: -10px 0 18px; padding: 11px 14px; border-radius: 4px; background: #fff1ef; }
+.auth-alert ul { margin: 0; padding-left: 18px; }
+@media (max-width: 767.98px) { .auth-shell { padding: 32px 15px; } .auth-card, .auth-card--register { grid-template-columns: 1fr; min-height: auto; } .auth-visual { min-height: 330px; padding: 35px; } .auth-visual h1 { font-size: 34px; } .auth-form-panel { padding: 42px 28px; } }
+@media (max-width: 480px) { .auth-name-grid { grid-template-columns: 1fr; gap: 20px; } }

@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Sign in | Ecoverde{% endblock %}
+{% block body_class %}auth-page{% endblock %}
+{% block extra_css %}<link rel="stylesheet" href="{% static 'css/auth.css' %}">{% endblock %}
+
+{% block content %}
+<main class="auth-shell">
+  <div class="auth-card">
+    <section class="auth-visual" style="background-image: url('{% static 'images/bg_2.jpg' %}');">
+      <div class="auth-visual__overlay"></div>
+      <div class="auth-visual__content">
+        <span class="auth-kicker">Your next chapter starts here</span>
+        <h1>Find a place<br>to feel at home.</h1>
+        <p>Save your favourite homes and connect with trusted property experts in one place.</p>
+        <div class="auth-stat"><strong>2,000+</strong><span>homes waiting for you</span></div>
+      </div>
+    </section>
+
+    <section class="auth-form-panel">
+      <div class="auth-form-head">
+        <span class="auth-eyebrow">Welcome back</span>
+        <h2>Sign in to Ecoverde</h2>
+        <p>Access your saved properties and personalised recommendations.</p>
+      </div>
+
+      {% if form.non_field_errors %}<div class="auth-alert">{{ form.non_field_errors }}</div>{% endif %}
+      <form method="post" class="auth-form">
+        {% csrf_token %}
+        <div class="auth-field">
+          <label for="id_username">Username</label>
+          <div class="auth-input"><span class="fa fa-user-o" aria-hidden="true"></span><input type="text" name="username" id="id_username" placeholder="Your username" autocomplete="username" value="{{ request.POST.username|default:'' }}" required></div>
+          {% for error in form.username.errors %}<small class="auth-error">{{ error }}</small>{% endfor %}
+        </div>
+        <div class="auth-field">
+          <div class="auth-label-row"><label for="id_password">Password</label><a href="#">Forgot password?</a></div>
+          <div class="auth-input"><span class="fa fa-lock" aria-hidden="true"></span><input type="password" name="password" id="id_password" placeholder="Your password" autocomplete="current-password" required></div>
+          {% for error in form.password.errors %}<small class="auth-error">{{ error }}</small>{% endfor %}
+        </div>
+        <label class="auth-check"><input type="checkbox" name="remember_me"><span>Remember me</span></label>
+        <button type="submit" class="auth-submit">Sign in <span class="fa fa-arrow-right" aria-hidden="true"></span></button>
+      </form>
+      <p class="auth-switch">New to Ecoverde? <a href="{% url 'register' %}">Create an account</a></p>
+    </section>
+  </div>
+</main>
+{% endblock %}

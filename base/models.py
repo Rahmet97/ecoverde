@@ -1,6 +1,20 @@
 from django.db import models
 
 
+class City(models.Model):
+    name = models.CharField(max_length=100)
+    img = models.ImageField(upload_to='cities/', blank=True, null=True, default=None)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        verbose_name = 'City'
+        verbose_name_plural = 'Cities'
+
+    def __str__(self):
+        return self.name
+
+
 class House(models.Model):
 
     img = models.ImageField(upload_to='houses/')
@@ -13,7 +27,7 @@ class House(models.Model):
     floor_count = models.IntegerField()
     area = models.FloatField()
     title = models.CharField(max_length=100)
-    city = models.CharField(max_length=100)
+    city = models.ForeignKey(City, on_delete=models.CASCADE, blank=True, null=True, default=None)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
