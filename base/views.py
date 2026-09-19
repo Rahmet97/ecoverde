@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db.models import Count
 from django.shortcuts import render
 
@@ -10,8 +11,17 @@ def home(request):
     cities_with_house_count = City.objects.annotate(
         house_count=Count('house')
     ).order_by('-house_count')
+    agents = User.objects.filter(is_staff=True, is_superuser=False)
 
-    return render(request, "index.html", {"houses": houses, "cities": cities_with_house_count})
+    return render(
+        request,
+        "index.html",
+        {
+            "houses": houses,
+            "cities": cities_with_house_count,
+            "agents": agents,
+        }
+    )
 
 
 def about(request):
@@ -19,7 +29,8 @@ def about(request):
 
 
 def agent(request):
-    return render(request, "agent.html")
+    agents = User.objects.filter(is_staff=True)
+    return render(request, "agent.html", {"agents": agents})
 
 
 def services(request):

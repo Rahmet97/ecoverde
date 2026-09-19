@@ -1,3 +1,5 @@
+from email.policy import default
+
 from django.contrib.auth import login, logout
 from django import forms
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
@@ -9,10 +11,11 @@ class RegisterForm(UserCreationForm):
     email = forms.EmailField(required=False)
     first_name = forms.CharField(max_length=150)
     last_name = forms.CharField(max_length=150)
+    is_staff = forms.CheckboxInput()
 
     class Meta:
         model = User
-        fields = ('username', 'first_name', 'last_name', 'email', 'password1', 'password2')
+        fields = ('username', 'first_name', 'last_name', 'email', 'password1', 'password2', 'is_staff')
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -28,6 +31,7 @@ class RegisterForm(UserCreationForm):
         self.fields['password2'].widget.attrs.update({
             'placeholder': 'Repeat your password', 'autocomplete': 'new-password',
         })
+        # self.fields["is_staff"].label_from_instance = lambda obj: obj.get_is_staff_display()
 
 
 def login_view(request):

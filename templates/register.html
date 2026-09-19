@@ -63,6 +63,10 @@
           <div class="auth-input"><span class="fa fa-shield" aria-hidden="true"></span><input type="password" name="password2" id="id_password2" placeholder="Repeat your password" autocomplete="new-password" required></div>
           {% for error in form.password2.errors %}<small class="auth-error">{{ error }}</small>{% endfor %}
         </div>
+        <div class="auth-field">
+          <label for="id_staff">Is agent?</label>
+          <input type="checkbox" name="is_staff" id="id_staff">
+        </div>
         <button type="submit" class="auth-submit">Create account <span class="fa fa-arrow-right" aria-hidden="true"></span></button>
       </form>
       <p class="auth-switch">Already have an account? <a href="{% url 'login' %}">Sign in</a></p>
