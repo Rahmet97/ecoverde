@@ -30,6 +30,7 @@ class House(models.Model):
     city = models.ForeignKey(City, on_delete=models.CASCADE, blank=True, null=True, default=None)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    broker = models.ForeignKey('auth.User', on_delete=models.CASCADE, blank=True, null=True, default=None)
 
     class Meta:
         db_table = 'houses'

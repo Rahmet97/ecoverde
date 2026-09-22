@@ -6,8 +6,11 @@ from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth.models import User
 from django.shortcuts import redirect, render
 
+from auth.models import AgentPhoneNumbers
+
 
 class RegisterForm(UserCreationForm):
+    phone_number = forms.CharField(max_length=15, required=True)
     email = forms.EmailField(required=False)
     first_name = forms.CharField(max_length=150)
     last_name = forms.CharField(max_length=150)
@@ -15,7 +18,10 @@ class RegisterForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ('username', 'first_name', 'last_name', 'email', 'password1', 'password2', 'is_staff')
+        fields = (
+            'username', 'first_name', 'last_name', 'phone_number',
+            'email', 'password1', 'password2', 'is_staff',
+        )
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -52,6 +58,10 @@ def register_view(request):
     form = RegisterForm(request.POST or None)
     if request.method == 'POST' and form.is_valid():
         user = form.save()
+        phone_number = form.cleaned_data.get('phone_number')
+        user.refresh_from_db()
+        new_agent_phone_number = AgentPhoneNumbers.objects.create(user=user, phone_number=phone_number)
+        new_agent_phone_number.save()
         login(request, user)
         return redirect('home')
     return render(request, 'register.html', {'form': form})

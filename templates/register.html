@@ -48,6 +48,10 @@
           <div class="auth-input"><span class="fa fa-at" aria-hidden="true"></span><input type="text" name="username" id="id_username" placeholder="Choose a username" autocomplete="username" value="{{ request.POST.username|default:'' }}" required></div>
           {% for error in form.username.errors %}<small class="auth-error">{{ error }}</small>{% endfor %}
         </div>
+      <div class="auth-field">
+          <label for="id_phone">Phone number</label>
+          <div class="auth-input"><span class="fa fa-phone" aria-hidden="true"></span><input type="text" name="phone_number" id="id_phone" placeholder="Enter a phone number" autocomplete="phone" value="{{ request.POST.phone_number|default:'' }}" required></div>
+        </div>
         <div class="auth-field">
           <label for="id_email">Email address <span>(optional)</span></label>
           <div class="auth-input"><span class="fa fa-envelope-o" aria-hidden="true"></span><input type="email" name="email" id="id_email" placeholder="you@example.com" autocomplete="email" value="{{ request.POST.email|default:'' }}"></div>

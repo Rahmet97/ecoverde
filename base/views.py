@@ -1,6 +1,6 @@
 from django.contrib.auth.models import User
 from django.db.models import Count
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 from .models import House, City
 
@@ -39,3 +39,24 @@ def services(request):
 
 def contacts(request):
     return render(request, "contact.html")
+
+
+def add_house(request):
+    cities = City.objects.all()
+    if request.method == "POST":
+        house = House.objects.create(
+            img=request.FILES['img'],
+            type=request.POST['type'],
+            price=request.POST['price'],
+            city_id=request.POST['city'],
+            address=request.POST['address'],
+            description=request.POST['description'],
+            room_count=request.POST['room_count'],
+            floor=request.POST['floor'],
+            floor_count=request.POST['floor_count'],
+            area=request.POST['area'],
+            title=request.POST['title'],
+        )
+        house.save()
+        return redirect('add_house')
+    return render(request, "add_house.html", {"cities": cities})

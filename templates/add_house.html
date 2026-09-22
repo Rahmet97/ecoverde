@@ -1,0 +1,179 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Add Property | Ecoverde{% endblock %}
+{% block body_class %}house-form-page{% endblock %}
+{% block extra_css %}<link rel="stylesheet" href="{% static 'css/house_form.css' %}">{% endblock %}
+
+{% block content %}
+<main class="hf-shell">
+  <div class="hf-card">
+
+    <!-- Left visual panel -->
+    <section class="hf-visual" style="background-image: url('{% static 'images/bg_2.jpg' %}');">
+      <div class="hf-visual__overlay"></div>
+      <div class="hf-visual__content">
+        <span class="hf-kicker">Agent Panel</span>
+        <h1>List a New<br>Property</h1>
+        <p>Reach thousands of potential buyers and renters by listing your property on Ecoverde.</p>
+        <div class="hf-features">
+          <span><i class="fa fa-check" aria-hidden="true"></i> Instant listing</span>
+          <span><i class="fa fa-check" aria-hidden="true"></i> Broad audience reach</span>
+          <span><i class="fa fa-check" aria-hidden="true"></i> Manage anytime</span>
+        </div>
+        <div class="hf-stat" style="margin-top: 28px;">
+          <strong>2,500+</strong><span>active listings</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Right form panel -->
+    <section class="hf-form-panel">
+      <a href="/" class="hf-back"><span class="fa fa-arrow-left" aria-hidden="true"></span> Back to Home</a>
+
+      <div class="hf-form-head">
+        <span class="hf-eyebrow">New Listing</span>
+        <h2>Add a Property</h2>
+        <p>Fill in the details below to publish your property on Ecoverde.</p>
+      </div>
+
+      {% if form.non_field_errors %}
+        <div class="hf-alert">{{ form.non_field_errors }}</div>
+      {% endif %}
+
+      <form method="post" enctype="multipart/form-data" class="hf-form">
+        {% csrf_token %}
+
+        <!-- Title -->
+        <div class="hf-field">
+          <label for="id_title">Property Title</label>
+          <div class="hf-input">
+            <span class="fa fa-home" aria-hidden="true"></span>
+            <input type="text" name="title" id="id_title" placeholder="e.g. Modern Apartment in City Center" value="{{ request.POST.title|default:'' }}" required>
+          </div>
+          {% for error in form.title.errors %}<small class="hf-error">{{ error }}</small>{% endfor %}
+        </div>
+
+        <!-- Type & Price -->
+        <div class="hf-two-col">
+          <div class="hf-field">
+            <label for="id_type">Listing Type</label>
+            <div class="hf-select">
+              <span class="fa fa-tag" aria-hidden="true"></span>
+              <select name="type" id="id_type" required>
+                <option value="" disabled {% if not request.POST.type %}selected{% endif %}>Select type</option>
+                <option value="Sale" {% if request.POST.type == 'Sale' %}selected{% endif %}>For Sale</option>
+                <option value="Rent" {% if request.POST.type == 'Rent' %}selected{% endif %}>For Rent</option>
+              </select>
+            </div>
+            {% for error in form.type.errors %}<small class="hf-error">{{ error }}</small>{% endfor %}
+          </div>
+          <div class="hf-field">
+            <label for="id_price">Price ($)</label>
+            <div class="hf-input">
+              <span class="fa fa-usd" aria-hidden="true"></span>
+              <input type="number" name="price" id="id_price" placeholder="250000" step="0.01" min="0" value="{{ request.POST.price|default:'' }}" required>
+            </div>
+            {% for error in form.price.errors %}<small class="hf-error">{{ error }}</small>{% endfor %}
+          </div>
+        </div>
+
+        <!-- City -->
+        <div class="hf-field">
+          <label for="id_city">City</label>
+          <div class="hf-select">
+            <span class="fa fa-map-marker" aria-hidden="true"></span>
+            <select name="city" id="id_city" required>
+              <option value="" disabled {% if not request.POST.city %}selected{% endif %}>Select city</option>
+              {% for city in cities %}
+              <option value="{{ city.id }}" {% if request.POST.city == city.id|stringformat:"s" %}selected{% endif %}>{{ city.name }}</option>
+              {% endfor %}
+            </select>
+          </div>
+          {% for error in form.city.errors %}<small class="hf-error">{{ error }}</small>{% endfor %}
+        </div>
+
+        <!-- Address -->
+        <div class="hf-field">
+          <label for="id_address">Address</label>
+          <div class="hf-input">
+            <span class="fa fa-map-o" aria-hidden="true"></span>
+            <input type="text" name="address" id="id_address" placeholder="Full street address" value="{{ request.POST.address|default:'' }}" required>
+          </div>
+          {% for error in form.address.errors %}<small class="hf-error">{{ error }}</small>{% endfor %}
+        </div>
+
+        <!-- Rooms / Floor / Total Floors -->
+        <div class="hf-three-col">
+          <div class="hf-field">
+            <label for="id_room_count">Rooms</label>
+            <div class="hf-input">
+              <span class="fa fa-bed" aria-hidden="true"></span>
+              <input type="number" name="room_count" id="id_room_count" placeholder="3" min="1" value="{{ request.POST.room_count|default:'' }}" required>
+            </div>
+            {% for error in form.room_count.errors %}<small class="hf-error">{{ error }}</small>{% endfor %}
+          </div>
+          <div class="hf-field">
+            <label for="id_floor">Floor</label>
+            <div class="hf-input">
+              <span class="fa fa-building-o" aria-hidden="true"></span>
+              <input type="number" name="floor" id="id_floor" placeholder="2" min="0" value="{{ request.POST.floor|default:'' }}" required>
+            </div>
+            {% for error in form.floor.errors %}<small class="hf-error">{{ error }}</small>{% endfor %}
+          </div>
+          <div class="hf-field">
+            <label for="id_floor_count">Total Floors</label>
+            <div class="hf-input">
+              <span class="fa fa-building" aria-hidden="true"></span>
+              <input type="number" name="floor_count" id="id_floor_count" placeholder="9" min="1" value="{{ request.POST.floor_count|default:'' }}" required>
+            </div>
+            {% for error in form.floor_count.errors %}<small class="hf-error">{{ error }}</small>{% endfor %}
+          </div>
+        </div>
+
+        <!-- Area -->
+        <div class="hf-field">
+          <label for="id_area">Area (sq ft)</label>
+          <div class="hf-input">
+            <span class="fa fa-arrows-alt" aria-hidden="true"></span>
+            <input type="number" name="area" id="id_area" placeholder="1200" step="0.01" min="0" value="{{ request.POST.area|default:'' }}" required>
+          </div>
+          {% for error in form.area.errors %}<small class="hf-error">{{ error }}</small>{% endfor %}
+        </div>
+
+        <!-- Description -->
+        <div class="hf-field">
+          <label for="id_description">Description</label>
+          <textarea name="description" id="id_description" placeholder="Describe the property — features, condition, surroundings…" required>{{ request.POST.description|default:'' }}</textarea>
+          {% for error in form.description.errors %}<small class="hf-error">{{ error }}</small>{% endfor %}
+        </div>
+
+        <!-- Image -->
+        <div class="hf-field">
+          <label>Property Image</label>
+          <div class="hf-file">
+            <label for="id_img" class="hf-file-label">
+              <span class="fa fa-upload" aria-hidden="true"></span> Choose image
+            </label>
+            <input type="file" name="img" id="id_img" accept="image/*" required>
+            <span class="hf-file-name" id="img-filename">No file chosen</span>
+          </div>
+          {% for error in form.img.errors %}<small class="hf-error">{{ error }}</small>{% endfor %}
+        </div>
+
+        <button type="submit" class="hf-submit">
+          Add Property <span class="fa fa-arrow-right" aria-hidden="true"></span>
+        </button>
+      </form>
+    </section>
+
+  </div>
+</main>
+
+<script>
+  document.getElementById('id_img').addEventListener('change', function () {
+    var label = document.getElementById('img-filename');
+    label.textContent = this.files.length ? this.files[0].name : 'No file chosen';
+  });
+</script>
+{% endblock %}

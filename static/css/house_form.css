@@ -1,0 +1,96 @@
+/* ===== House Form Pages ===== */
+.house-form-page { background: #f7f8f5; }
+.house-form-page #ftco-navbar { display: none; }
+.house-form-page .ftco-footer { display: none; }
+
+.hf-shell { min-height: 100vh; padding: 48px 20px; display: flex; align-items: flex-start; justify-content: center; }
+.hf-card { width: min(1160px, 100%); margin: 0 auto; display: grid; grid-template-columns: .85fr 1.15fr; overflow: hidden; background: #fff; border-radius: 6px; box-shadow: 0 20px 60px rgba(33, 36, 61, .12); }
+
+/* ===== Visual Panel ===== */
+.hf-visual { position: relative; background-position: center; background-size: cover; color: #fff; display: flex; align-items: flex-end; padding: 54px; }
+.hf-visual__overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(33,36,61,.1), rgba(33,36,61,.88)); }
+.hf-visual__content { position: relative; z-index: 1; max-width: 380px; }
+.hf-kicker, .hf-eyebrow { font-size: 11px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; }
+.hf-kicker { color: #b8e7c3; }
+.hf-eyebrow { color: #24a148; }
+.hf-visual h1 { margin: 15px 0 20px; color: #fff; font-size: 40px; line-height: 1.1; font-weight: 400; }
+.hf-visual p { margin-bottom: 32px; color: rgba(255,255,255,.82); font-size: 15px; line-height: 1.8; }
+.hf-stat { display: flex; align-items: center; gap: 13px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,.3); }
+.hf-stat strong { color: #fff; font-size: 24px; font-weight: 700; }
+.hf-stat span { color: rgba(255,255,255,.7); font-size: 13px; }
+.hf-features { display: grid; gap: 11px; color: rgba(255,255,255,.88); font-size: 14px; }
+.hf-features i { width: 18px; margin-right: 8px; color: #b8e7c3; }
+
+/* ===== Form Panel ===== */
+.hf-form-panel { padding: 52px clamp(28px, 6vw, 72px); display: flex; flex-direction: column; justify-content: flex-start; }
+.hf-form-head { margin-bottom: 28px; }
+.hf-form-head h2 { margin: 10px 0 8px; color: #21243d; font-size: 28px; font-weight: 700; }
+.hf-form-head p { margin: 0; color: #7d7f8b; font-size: 14px; line-height: 1.7; }
+
+/* ===== Form Fields ===== */
+.hf-form { display: grid; gap: 18px; }
+.hf-two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.hf-three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+
+.hf-field label { display: block; margin-bottom: 7px; color: #21243d; font-size: 12px; font-weight: 700; }
+
+/* Text / number inputs */
+.hf-input { position: relative; }
+.hf-input > span { position: absolute; z-index: 1; top: 17px; left: 17px; color: #a3a5ad; font-size: 13px; }
+.hf-input input { width: 100%; height: 52px; padding: 0 16px 0 44px; border: 1px solid #e6e7e9; border-radius: 4px; outline: 0; color: #21243d; background: #fff; font-size: 14px; transition: border .2s, box-shadow .2s; font-family: inherit; }
+.hf-input input:focus { border-color: #24a148; box-shadow: 0 0 0 3px rgba(36,161,72,.1); }
+
+/* Select dropdowns */
+.hf-select { position: relative; }
+.hf-select > span { position: absolute; z-index: 1; top: 17px; left: 17px; color: #a3a5ad; font-size: 13px; }
+.hf-select select { width: 100%; height: 52px; padding: 0 36px 0 44px; border: 1px solid #e6e7e9; border-radius: 4px; outline: 0; color: #21243d; background: #fff; font-size: 14px; appearance: none; -webkit-appearance: none; cursor: pointer; transition: border .2s, box-shadow .2s; font-family: inherit; }
+.hf-select select:focus { border-color: #24a148; box-shadow: 0 0 0 3px rgba(36,161,72,.1); }
+.hf-select::after { content: '\f107'; font-family: 'FontAwesome'; position: absolute; top: 50%; right: 16px; transform: translateY(-50%); color: #a3a5ad; pointer-events: none; font-size: 14px; }
+
+/* Textarea */
+.hf-field textarea { width: 100%; padding: 14px 16px; border: 1px solid #e6e7e9; border-radius: 4px; outline: 0; color: #21243d; background: #fff; font-size: 14px; line-height: 1.6; resize: vertical; min-height: 110px; transition: border .2s, box-shadow .2s; font-family: inherit; }
+.hf-field textarea:focus { border-color: #24a148; box-shadow: 0 0 0 3px rgba(36,161,72,.1); }
+
+/* File upload */
+.hf-file { display: flex; align-items: center; gap: 12px; }
+.hf-file input[type="file"] { display: none; }
+.hf-file-label { display: inline-flex; align-items: center; gap: 8px; height: 44px; padding: 0 20px; border: 1.5px dashed #24a148; border-radius: 4px; color: #24a148; font-size: 13px; font-weight: 700; cursor: pointer; transition: background .2s; white-space: nowrap; font-family: inherit; }
+.hf-file-label:hover { background: rgba(36,161,72,.06); }
+.hf-file-name { color: #92939d; font-size: 13px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+/* Current image preview (edit page) */
+.hf-img-preview { margin-bottom: 12px; }
+.hf-img-preview img { width: 100%; max-width: 220px; height: 130px; object-fit: cover; border-radius: 4px; border: 1px solid #e6e7e9; display: block; }
+.hf-img-preview span { display: block; margin-top: 6px; color: #7d7f8b; font-size: 11px; }
+
+/* Submit button */
+.hf-submit { height: 54px; border: 0; border-radius: 4px; color: #fff; background: #24a148; font-size: 13px; font-weight: 700; letter-spacing: .3px; cursor: pointer; transition: background .2s, transform .2s; font-family: inherit; }
+.hf-submit span { margin-left: 9px; }
+.hf-submit:hover { background: #1d873d; transform: translateY(-1px); }
+
+/* Back link */
+.hf-back { display: inline-flex; align-items: center; gap: 6px; margin-bottom: 24px; color: #7d7f8b; font-size: 13px; font-weight: 600; text-decoration: none; transition: color .2s; }
+.hf-back:hover { color: #24a148; text-decoration: none; }
+.hf-back span { font-size: 12px; }
+
+/* Alerts / errors */
+.hf-error { display: block; margin-top: 5px; color: #c0392b; font-size: 11px; }
+.hf-alert { margin: -8px 0 16px; padding: 11px 14px; border-radius: 4px; background: #fff1ef; color: #c0392b; font-size: 12px; }
+.hf-alert ul { margin: 0; padding-left: 18px; }
+.hf-success { margin: -8px 0 16px; padding: 11px 14px; border-radius: 4px; background: #edfaf2; color: #1d873d; font-size: 12px; }
+
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+  .hf-three-col { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 767.98px) {
+  .hf-shell { padding: 28px 15px; }
+  .hf-card { grid-template-columns: 1fr; }
+  .hf-visual { min-height: 300px; padding: 35px; align-items: flex-end; }
+  .hf-visual h1 { font-size: 32px; }
+  .hf-form-panel { padding: 40px 24px; }
+}
+@media (max-width: 540px) {
+  .hf-two-col { grid-template-columns: 1fr; }
+  .hf-three-col { grid-template-columns: 1fr; }
+}
