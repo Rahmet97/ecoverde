@@ -35,7 +35,7 @@
 	          <li class="nav-item {% if request.resolver_match.url_name == 'about' %}active{% endif %}"><a href="/about" class="nav-link">About</a></li>
 	          <li class="nav-item {% if request.resolver_match.url_name == 'agent' %}active{% endif %}"><a href="/agent" class="nav-link">Agent</a></li>
 	          <li class="nav-item {% if request.resolver_match.url_name == 'services' %}active{% endif %}"><a href="/services" class="nav-link">Services</a></li>
-	          <li class="nav-item {% if request.resolver_match.url_name == 'properties' %}active{% endif %}"><a href="properties.html" class="nav-link">Properties</a></li>
+	          <li class="nav-item {% if request.resolver_match.url_name == 'properties' %}active{% endif %}"><a href="/properties" class="nav-link">Properties</a></li>
 	          <li class="nav-item {% if request.resolver_match.url_name == 'blog' %}active{% endif %}"><a href="blog.html" class="nav-link">Blog</a></li>
 	          <li class="nav-item {% if request.resolver_match.url_name == 'contact' %}active{% endif %}"><a href="/contact" class="nav-link">Contact</a></li>
             {% if user.is_authenticated %}

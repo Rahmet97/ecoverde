@@ -8,5 +8,8 @@ urlpatterns = [
     path('agent', views.agent, name='agent'),
     path('services', views.services, name='services'),
     path('contact', views.contacts, name='contacts'),
-    path('add-house', views.add_house, name='add_house'),
+    path('properties', views.properties, name='properties'),
+    path('properties/<int:pk>', views.property_details, name='property_details'),
+    # path('add-house', views.add_house, name='add_house'),
+    path('add-house', views.HouseView.as_view(), name='add_house'),
 ]
