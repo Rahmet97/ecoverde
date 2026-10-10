@@ -1,9 +1,9 @@
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, AnonymousUser
 from django.db.models import Count, Q
 from django.shortcuts import render, redirect
 from django.views.generic import TemplateView
-
-from .models import House, City
+from django.db.utils import IntegrityError
+from .models import House, City, Basket
 
 
 def home(request):
@@ -43,6 +43,15 @@ def contacts(request):
 
 
 def properties(request):
+    if request.method == 'POST':
+        house_id = request.POST.get('house_id')
+        user = request.user
+        if isinstance(user, AnonymousUser):
+            return redirect('login')
+        basket = Basket.objects.create(house_id=house_id, user_id=user.id)
+        basket.save()
+
+
     q = request.GET.get('q')
     apartment_type = request.GET.get('type')
     city_id = request.GET.get('city_id')

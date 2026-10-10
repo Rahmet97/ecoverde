@@ -40,3 +40,18 @@ class House(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Basket(models.Model):
+    house = models.ForeignKey(House, on_delete=models.CASCADE)
+    user = models.ForeignKey('auth.User', on_delete=models.CASCADE)
+
+    class Meta:
+        db_table = 'basket'
+        db_table_comment = 'Basket'
+        verbose_name = 'Basket'
+        verbose_name_plural = 'Baskets'
+
+    def __str__(self):
+        return f"{self.house.title} - {self.user.username}"
+    

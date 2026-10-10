@@ -116,9 +116,14 @@
         				</ul>
         				<h3><a href="/properties/{{ house.id }}">{{ house.title }}</a></h3>
         				<span class="location">{{ house.city }}</span>
-        				<a href="#" class="d-flex align-items-center justify-content-center btn-custom">
-        					<span class="fa fa-link"></span>
-        				</a>
+                        <form method="post">
+                            {% csrf_token %}
+                            <input type="hidden" value="{{ house.id }}" name="house_id">
+                            <button class="d-flex align-items-center justify-content-center btn btn-custom">
+                                <span class="fa fa-shopping-basket"></span>
+                            </button>
+                        </form>
+
         				<div class="list-team d-flex align-items-center mt-2 pt-2 border-top">
         					<div class="d-flex align-items-center">
 	        					<div class="img" style="text-align: center;width: 30px;height: 30px;border-radius: 50%;background-color: #0f6674;color: white;">
