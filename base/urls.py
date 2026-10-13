@@ -12,4 +12,6 @@ urlpatterns = [
     path('properties/<int:pk>', views.property_details, name='property_details'),
     # path('add-house', views.add_house, name='add_house'),
     path('add-house', views.HouseView.as_view(), name='add_house'),
+    path('basket', views.BasketView.as_view(), name='basket'),
+    path('api/update-count', views.update_count, name='update_count')
 ]

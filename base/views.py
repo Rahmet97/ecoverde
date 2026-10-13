@@ -1,8 +1,11 @@
+import json
+
 from django.contrib.auth.models import User, AnonymousUser
 from django.db.models import Count, Q
+from django.http import JsonResponse
 from django.shortcuts import render, redirect
+from django.views.decorators.http import require_POST
 from django.views.generic import TemplateView
-from django.db.utils import IntegrityError
 from .models import House, City, Basket
 
 
@@ -107,3 +110,26 @@ class HouseView(TemplateView):
         )
         house.save()
         return redirect('add_house')
+
+
+class BasketView(TemplateView):
+    template_name = 'basket.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        # if self.request.user.is_anonymous:
+        #     return redirect('login')
+        basket = Basket.objects.filter(user_id=self.request.user.id)
+        context['basket'] = basket
+        return context
+
+
+@require_POST
+def update_count(request):
+    count = json.loads(request.body).get('count')
+    basket_id = json.loads(request.body).get('basket_id')
+
+    basket = Basket.objects.get(id=basket_id)
+    basket.count += count
+    basket.save()
+    return JsonResponse({"message": "Count updated successfully"})

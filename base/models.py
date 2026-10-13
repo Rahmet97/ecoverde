@@ -45,6 +45,7 @@ class House(models.Model):
 class Basket(models.Model):
     house = models.ForeignKey(House, on_delete=models.CASCADE)
     user = models.ForeignKey('auth.User', on_delete=models.CASCADE)
+    count = models.IntegerField(default=1)
 
     class Meta:
         db_table = 'basket'
